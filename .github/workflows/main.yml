@@ -36,11 +36,17 @@ jobs:
     - name: Check Installed Packages
       run: pip list
 
+    - name: Print Working Directory
+      run: pwd
+
+    - name: List Directory Contents
+      run: dir
+
     - name: Verify Scripts Exist
       run: |
-        dir FileFinder_19\file_info_mapfolders.py
-        dir FileFinder_19\file_info_version_22.py
-        dir FileFinder_19\machine_info_migration_centre.py
+        if exist FileFinder_19\file_info_mapfolders.py (echo file_info_mapfolders.py exists) else (echo file_info_mapfolders.py not found)
+        if exist FileFinder_19\file_info_version_22.py (echo file_info_version_22.py exists) else (echo file_info_version_22.py not found)
+        if exist FileFinder_19\machine_info_migration_centre.py (echo machine_info_migration_centre.py exists) else (echo machine_info_migration_centre.py not found)
 
     - name: Run Scripts
       run: |
