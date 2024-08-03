@@ -30,6 +30,18 @@ jobs:
     - name: Lint with flake8
       run: flake8 .  # Run flake8 for linting
 
+    - name: Check Python Version
+      run: python --version
+
+    - name: Check Installed Packages
+      run: pip list
+
+    - name: Verify Scripts Exist
+      run: |
+        dir FileFinder_19\file_info_mapfolders.py
+        dir FileFinder_19\file_info_version_22.py
+        dir FileFinder_19\machine_info_migration_centre.py
+
     - name: Run Scripts
       run: |
         python FileFinder_19/file_info_mapfolders.py
